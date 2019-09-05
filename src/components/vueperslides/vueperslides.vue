@@ -60,11 +60,11 @@
           svg(viewBox="0 0 24 24")
             path(d="M7.8,21c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l7.4-7.3L7,4.7c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l8.8,8.7l-8.8,8.7C8.3,20.9,8,21,7.8,21z")
     .vueperslides__bullets(
-      v-if="conf.bullets && slides.count > 1 && !disable && !conf.bulletsOutside"
+      v-if="conf.bullets && !disable && !conf.bulletsOutside"
       role="tablist"
       aria-label="Slideshow navigation")
       button.vueperslides__bullet(
-        :class="{ 'vueperslides__bullet--active': slides.current === i * conf.slideMultiple }"
+        :class="{ 'vueperslides__bullet--active': slides.current === i * conf.slideMultiple, 'vueperslides__first-slider': i == 0 }"
         v-for="(item, i) in Math.ceil(slides.count / conf.slideMultiple)"
         :key="i"
         role="tab"
@@ -76,11 +76,11 @@
         span {{ i + 1 }}
 
   .vueperslides__bullets.vueperslides__bullets--outside(
-    v-if="conf.bullets && slides.count > 1 && !disable && conf.bulletsOutside"
+    v-if="conf.bullets && !disable && conf.bulletsOutside"
     role="tablist"
     aria-label="Slideshow navigation")
     button.vueperslides__bullet(
-      :class="{ 'vueperslides__bullet--active': slides.current === i * conf.slideMultiple }"
+      :class="{ 'vueperslides__bullet--active': slides.current === i * conf.slideMultiple, 'vueperslides__first-slider': i == 0 }"
       v-for="(item, i) in Math.ceil(slides.count / conf.slideMultiple)"
       :key="i"
       role="tab"

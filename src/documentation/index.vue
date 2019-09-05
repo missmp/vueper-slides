@@ -202,8 +202,8 @@
       border: none;
       box-shadow: none;
       transition: 0.3s;
-      width: 16px;
-      height: 16px;
+      width: 8px;
+      height: 8px;
     }
 
     .vueperslides__bullet--active {
@@ -552,7 +552,6 @@
       font-size: 10px;
       transform: translateX(30%) rotate(45deg);
       transform-origin: 0 0;
-      box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
     }
 
   h3
