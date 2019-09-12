@@ -41,24 +41,24 @@
     .vueperslides__paused(v-if="$slots.pausedIcon")
       slot(name="pausedIcon")
     .vueperslides__arrows(:class="{ 'vueperslides__arrows--outside': conf.arrowsOutside }" v-if="conf.arrows && slides.count > 1 && !disable")
-      button.vueperslides__arrow.vueperslides__arrow--prev(
+      button(style='height: 100%; width: 25%; text-align: left').vueperslides__arrow.vueperslides__arrow--prev(
         @click="previous()"
         v-show="!arrowPrevDisabled"
         aria-label="Previous"
         @keyup.left="previous()"
         @keyup.right="next()")
         slot(name="arrowLeft")
-          svg(viewBox="0 0 24 24")
-            path(d="M16.2,21c0.3,0,0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L9.6,12L17,4.7c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L6.8,12l8.8,8.7C15.7,20.9,16,21,16.2,21z")
-      button.vueperslides__arrow.vueperslides__arrow--next(
+          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
+      button(style='height: 100%; width: 25%; text-align: right').vueperslides__arrow.vueperslides__arrow--next(
         @click="next()"
         v-show="!arrowNextDisabled"
         aria-label="Next"
         @keyup.left="previous()"
         @keyup.right="next()")
         slot(name="arrowRight")
-          svg(viewBox="0 0 24 24")
-            path(d="M7.8,21c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l7.4-7.3L7,4.7c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l8.8,8.7l-8.8,8.7C8.3,20.9,8,21,7.8,21z")
+          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d='M1.52325 46.5637L24.1136 23.9927L1.52326 1.42157', stroke='#FEFEFE', stroke-width='2')
     .vueperslides__bullets(
       v-if="conf.bullets && !disable && !conf.bulletsOutside"
       role="tablist"

@@ -104,3 +104,19 @@
     text-align: center;
   }
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices, left arrow must be closer the edge */ 
+  .vueperslides {
+    &__arrow {
+  
+      &--prev {
+        left: -20px;
+      }
+  
+      &--next {
+        right: 10px;
+      }
+    }
+  }
+}
