@@ -85,7 +85,7 @@
       :key="i"
       role="tab"
       :aria-label="`Slide ${i + 1}`"
-      @click="goToSlide(i * conf.slideMultiple)"
+      @click="goToSlide(i * conf.slideMultiple); goToSlideManual()"
       @keyup.left="previous()"
       @keyup.right="next()"
       ref="bullet")
