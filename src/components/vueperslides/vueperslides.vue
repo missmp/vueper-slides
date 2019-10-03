@@ -650,7 +650,7 @@ export default {
       this.$parent.logNext()
     },
 
-    goSlideManual () {
+    goToSlideManual () {
       this.$parent.logBullet()
     },
 
