@@ -642,10 +642,12 @@ export default {
 
     previous () {
       this.goToSlide(this.slides.current - this.conf.slideMultiple)
+      this.$parent.logBack()
     },
 
     next () {
       this.goToSlide(this.slides.current + this.conf.slideMultiple)
+      this.$parent.logNext()
     },
 
     refreshParallax () {
@@ -707,6 +709,7 @@ export default {
     },
 
     goToSlide (index, options = {}) {
+      this.$parent.logBullet()
       if (!this.slides.count || this.disable) return
 
       if (this.conf.autoplay) this.clearTimer()
