@@ -69,7 +69,7 @@
         :key="i"
         role="tab"
         :aria-label="`Slide ${i + 1}`"
-        @click="goToSlide(i * conf.slideMultiple)"
+        @click="goToSlide(i * conf.slideMultiple); goToSlideManual()"
         @keyup.left="previous()"
         @keyup.right="next()"
         ref="bullet")
@@ -650,6 +650,10 @@ export default {
       this.$parent.logNext()
     },
 
+    goSlideManual () {
+      this.$parent.logBullet()
+    },
+
     refreshParallax () {
       setTimeout(() => {
         this.onResize()
@@ -709,7 +713,6 @@ export default {
     },
 
     goToSlide (index, options = {}) {
-      this.$parent.logBullet()
       if (!this.slides.count || this.disable) return
 
       if (this.conf.autoplay) this.clearTimer()
