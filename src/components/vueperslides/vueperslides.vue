@@ -41,7 +41,7 @@
     .vueperslides__paused(v-if="$slots.pausedIcon")
       slot(name="pausedIcon")
     .vueperslides__arrows(:class="{ 'vueperslides__arrows--outside': conf.arrowsOutside }" v-if="conf.arrows && slides.count > 1 && !disable")
-      button(style='height: 100%; width: 25%; text-align: left').vueperslides__arrow.vueperslides__arrow--prev(
+      button(style='height: 100%; width: 25%; display: flex; justify-content: flex-start; align-items: center').vueperslides__arrow.vueperslides__arrow--prev(
         @click="previous()"
         v-show="!arrowPrevDisabled"
         aria-label="Previous"
@@ -50,7 +50,7 @@
         slot(name="arrowLeft")
           svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
             path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
-      button(style='height: 100%; width: 75%; text-align: right').vueperslides__arrow.vueperslides__arrow--next(
+      button(style='height: 100%; width: 75%; display: flex; justify-content: flex-end; align-items: center').vueperslides__arrow.vueperslides__arrow--next(
         @click="next()"
         v-show="!arrowNextDisabled"
         aria-label="Next"
