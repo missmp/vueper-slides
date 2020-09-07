@@ -41,24 +41,24 @@
     .vueperslides__paused(v-if="$slots.pausedIcon")
       slot(name="pausedIcon")
     .vueperslides__arrows(:class="{ 'vueperslides__arrows--outside': conf.arrowsOutside }" v-if="conf.arrows && slides.count > 1 && !disable")
-      button(style='height: 100%; width: 25%; display: flex; justify-content: flex-start; align-items: center').vueperslides__arrow.vueperslides__arrow--prev(
-        @click="previous()"
-        v-show="!arrowPrevDisabled"
-        aria-label="Previous"
-        @keyup.left="previous()"
-        @keyup.right="next()")
-        slot(name="arrowLeft")
-          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
-            path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
-      button(style='height: 100%; width: 75%; display: flex; justify-content: flex-end; align-items: center').vueperslides__arrow.vueperslides__arrow--next(
-        @click="next()"
-        v-show="!arrowNextDisabled"
-        aria-label="Next"
-        @keyup.left="previous()"
-        @keyup.right="next()")
-        slot(name="arrowRight")
-          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
-            path(d='M1.52325 46.5637L24.1136 23.9927L1.52326 1.42157', stroke='#FEFEFE', stroke-width='2')
+      //- button(style='height: 100%; width: 25%; display: flex; justify-content: flex-start; align-items: center').vueperslides__arrow.vueperslides__arrow--prev(
+      //-   @click="previous()"
+      //-   v-show="!arrowPrevDisabled"
+      //-   aria-label="Previous"
+      //-   @keyup.left="previous()"
+      //-   @keyup.right="next()")
+      //-   slot(name="arrowLeft")
+      //-     svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+      //-       path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
+      //- button(style='height: 100%; width: 75%; display: flex; justify-content: flex-end; align-items: center').vueperslides__arrow.vueperslides__arrow--next(
+      //-   @click="next()"
+      //-   v-show="!arrowNextDisabled"
+      //-   aria-label="Next"
+      //-   @keyup.left="previous()"
+      //-   @keyup.right="next()")
+      //-   slot(name="arrowRight")
+      //-     svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+      //-       path(d='M1.52325 46.5637L24.1136 23.9927L1.52326 1.42157', stroke='#FEFEFE', stroke-width='2')
     .vueperslides__bullets(
       v-if="conf.bullets && !disable && !conf.bulletsOutside"
       role="tablist"
