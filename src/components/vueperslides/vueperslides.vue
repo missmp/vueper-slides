@@ -40,25 +40,25 @@
 
     .vueperslides__paused(v-if="$slots.pausedIcon")
       slot(name="pausedIcon")
-    .vueperslides__arrows(:class="{ 'vueperslides__arrows--outside': conf.arrowsOutside }" v-if="conf.arrows && slides.count > 1 && !disable")
-      //- button(style='height: 100%; width: 25%; display: flex; justify-content: flex-start; align-items: center').vueperslides__arrow.vueperslides__arrow--prev(
-      //-   @click="previous()"
-      //-   v-show="!arrowPrevDisabled"
-      //-   aria-label="Previous"
-      //-   @keyup.left="previous()"
-      //-   @keyup.right="next()")
-      //-   slot(name="arrowLeft")
-      //-     svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
-      //-       path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
-      //- button(style='height: 100%; width: 75%; display: flex; justify-content: flex-end; align-items: center').vueperslides__arrow.vueperslides__arrow--next(
-      //-   @click="next()"
-      //-   v-show="!arrowNextDisabled"
-      //-   aria-label="Next"
-      //-   @keyup.left="previous()"
-      //-   @keyup.right="next()")
-      //-   slot(name="arrowRight")
-      //-     svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
-      //-       path(d='M1.52325 46.5637L24.1136 23.9927L1.52326 1.42157', stroke='#FEFEFE', stroke-width='2')
+    .vueperslides__arrows(class="hide-on-mobile" :class="{ 'vueperslides__arrows--outside': conf.arrowsOutside }" v-if="conf.arrows && slides.count > 1 && !disable")
+      button(style='height: 100%; width: 25%; display: flex; justify-content: flex-start; align-items: center').vueperslides__arrow.vueperslides__arrow--prev(
+        @click="previous()"
+        v-show="!arrowPrevDisabled"
+        aria-label="Previous"
+        @keyup.left="previous()"
+        @keyup.right="next()")
+        slot(name="arrowLeft")
+          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d='M24.4767 1.43628L1.88641 24.0074L24.4767 46.5784', stroke='#FEFEFE', stroke-width='2')
+      button(style='height: 100%; width: 75%; display: flex; justify-content: flex-end; align-items: center').vueperslides__arrow.vueperslides__arrow--next(
+        @click="next()"
+        v-show="!arrowNextDisabled"
+        aria-label="Next"
+        @keyup.left="previous()"
+        @keyup.right="next()")
+        slot(name="arrowRight")
+          svg(width='26', height='48', viewBox='0 0 26 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+            path(d='M1.52325 46.5637L24.1136 23.9927L1.52326 1.42157', stroke='#FEFEFE', stroke-width='2')
     .vueperslides__bullets(
       v-if="conf.bullets && !disable && !conf.bulletsOutside"
       role="tablist"
@@ -74,10 +74,11 @@
         @keyup.right="next()"
         ref="bullet")
         span {{ i + 1 }}
-    div(style="position: absolute; right: 0px; bottom: 10px; z-index: 100")
+    div(class="hide-on-desktop" style="position: absolute; right: 0px; bottom: 10px; z-index: 100")
       svg(width='64', height='64', viewBox='0 0 64 64', fill='none', xmlns='http://www.w3.org/2000/svg')
         path(d='M28.8999 17.392C26.9073 17.392 25.2871 19.03 25.2871 21.0442V37.5932L24.2065 35.4084C23.5871 34.1831 22.5528 32.9348 21.4001 32.6204C20.4271 32.3493 19.536 32.6994 18.8357 33.1095C17.9479 33.6365 17.3677 34.3875 17.1422 35.1475C16.8842 36.2128 17.1009 37.2857 17.5776 38.4573C19.9367 44.3123 23.5454 51.2695 27.4806 55.8214C27.5766 55.933 27.7214 56.0001 27.8677 56.0008H41.8028C41.9135 55.9972 42.0228 55.9566 42.1093 55.8867C43.4644 54.8718 44.6359 53.0433 45.6092 50.8323C46.5824 48.6213 47.3646 46.04 47.7221 43.528C48.0931 40.9196 48.1326 38.5864 47.593 36.6639C47.0534 34.7413 45.8459 33.2708 43.9318 33.0443C43.2631 33.0385 42.6814 33.0859 42.1576 33.3867C41.9798 32.5881 41.6182 31.9257 41.1093 31.5606C40.4496 31.0873 39.719 30.9488 39.2062 30.9573C38.493 30.9694 37.918 31.3535 37.4159 31.8867C37.2068 31.311 36.9165 30.8299 36.5126 30.5334C35.8636 30.0569 35.1247 29.9139 34.5772 29.9139C33.8517 29.9139 33.1208 30.191 32.5128 30.6476V21.0442C32.4679 18.6737 30.5778 17.3785 28.8999 17.392V17.392ZM28.8999 18.4355C30.3384 18.4355 31.4805 19.59 31.4805 21.0442V32.0008C31.4857 32.2346 31.6629 32.4537 31.889 32.5025C32.1153 32.5512 32.3665 32.4246 32.4643 32.2128C32.8026 31.5019 33.8044 30.9573 34.5772 30.9573C34.9267 30.9573 35.4828 31.0589 35.8998 31.3649C36.3167 31.671 36.6417 32.1426 36.6417 33.0443C36.6365 33.2808 36.8143 33.5075 37.0423 33.5604C37.2703 33.6133 37.5266 33.4869 37.6255 33.2726C38.0934 32.3265 38.5331 32.0128 39.2384 32.0008C39.5047 31.9961 40.0768 32.0959 40.5125 32.4084C40.9483 32.721 41.2867 33.196 41.2867 34.0878C41.2918 34.4914 41.8676 34.7402 42.1576 34.4628C42.2577 34.3689 42.5328 34.2374 42.8673 34.1693C43.2019 34.1012 43.5842 34.0878 43.8672 34.0878C45.2972 34.2855 46.1268 35.2798 46.593 36.941C47.0668 38.6292 47.0739 40.9536 46.7059 43.3649C46.338 45.7762 45.6052 48.2921 44.6737 50.4084C43.766 52.4705 42.6456 54.1146 41.577 54.9573H28.1257C24.3794 50.5598 20.8456 43.7751 18.5454 38.066C18.0561 36.793 17.9724 35.9792 18.126 35.4247C18.3865 34.6968 18.8753 34.274 19.3841 33.9899C19.963 33.6561 20.5333 33.4662 21.1259 33.6312C22.3337 34.2242 22.7743 34.967 23.2872 35.8975L25.3355 40.0552C25.4345 40.2695 25.6907 40.3959 25.9187 40.343C26.1467 40.2901 26.3227 40.0634 26.3193 39.8269V21.0442C26.3193 19.59 27.4614 18.4355 28.8999 18.4355V18.4355Z', fill='#2E2E2E')
         path(d='M20.7903 8.14956L16.1452 12.8455C16.0731 12.9157 15.9998 13.0382 16 13.2205C16.0062 13.392 16.0186 13.4719 16.1452 13.5955L20.7903 18.2914C21.0027 18.4979 21.3422 18.4715 21.5322 18.2751C21.7222 18.0787 21.7104 17.7335 21.5162 17.5414L17.7582 13.7423C25.1883 13.7423 32.6183 13.7423 40.0484 13.7423L36.2903 17.5414C36.096 17.7335 36.0843 18.0787 36.2744 18.2751C36.4644 18.4715 36.8039 18.4979 37.0163 18.2914L41.6614 13.5955C41.788 13.4719 41.8006 13.392 41.8066 13.2205C41.8068 13.0382 41.7334 12.9157 41.6614 12.8455L37.0163 8.14956C36.812 7.94716 36.4644 7.95316 36.2744 8.14956C36.0844 8.34596 36.0961 8.70751 36.2903 8.89959L40.0484 12.6987C32.6183 12.6987 25.1883 12.6987 17.7582 12.6987L21.5162 8.89959C21.7106 8.70751 21.7225 8.34596 21.5322 8.14956C21.2871 7.92594 20.9893 7.98295 20.7903 8.14956Z', fill='#2E2E2E')
+  
   .vueperslides__bullets.vueperslides__bullets--outside(
     v-if="conf.bullets && !disable && conf.bulletsOutside"
     role="tablist"
@@ -959,6 +960,21 @@ export default {
 // Vueperslides REQUIRED styles.
 // The nice-to-have not-required styles are placed in an external
 // css file so the end user can easily override it.
+@media (min-width: 971px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  .show-on-mobile {
+    display: initial;
+  }
+}
+
 .vueperslides {
   position: relative;
 
