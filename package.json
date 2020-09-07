@@ -20,7 +20,6 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "build-bundle": "vue-cli-service build --target lib --name vueperslides ./src/components/vueperslides/index.js --dest ./dist",
     "lint": "vue-cli-service lint"
   },
