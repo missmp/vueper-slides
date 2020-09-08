@@ -779,16 +779,17 @@ export default {
         this.setTimer()
       }
 
-      if (this.slides.count) {
-        if (this.$slots.default[this.slides.current]) {
-          // First use of goToSlide is while init, so should not propagate an event.
-          if (this.isReady && !jumping) this.emit('slide')
-        }
+      // remove for not auto scroll to bottom on short height screen
+      // if (this.slides.count) {
+      //   if (this.$slots.default[this.slides.current]) {
+      //     // First use of goToSlide is while init, so should not propagate an event.
+      //     if (this.isReady && !jumping) this.emit('slide')
+      //   }
 
-        if (this.isReady && this.conf.bullets && !autoPlaying && !jumping && this.$refs.bullet && this.$refs.bullet[this.slides.current]) {
-          this.$refs.bullet[this.slides.current].focus()
-        }
-      }
+      //   if (this.isReady && this.conf.bullets && !autoPlaying && !jumping && this.$refs.bullet && this.$refs.bullet[this.slides.current]) {
+      //     this.$refs.bullet[this.slides.current].focus()
+      //   }
+      // }
     },
 
     addSlide (newSlide) {
